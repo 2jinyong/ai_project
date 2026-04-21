@@ -13,7 +13,7 @@ class AppConfig:
     GPT_MODEL = "gpt-4o"
     
     # Ollama 설정
-    OLLAMA_MODEL = "llava:latest"
+    OLLAMA_MODEL = "gemma4:e2b"
     
     # 서버 설정
     HOST = "0.0.0.0"
