@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import ollama
 from openai import OpenAI
 from config import AppConfig  # config.py에서 설정 불러오기
+from database import saveAnalysisResult # database.py 불러오기
 from PIL import Image
 try:
     from chandra.model import InferenceManager
@@ -107,10 +108,14 @@ async def processAnalyze(uploadFile: UploadFile = File(...), userQuestion: str =
         for i in range(0, len(lines)):
             finalOutput.append(lines[i])
 
+        # DB에 분석 결과 저장
+        finalAnswer = "\n".join(finalOutput)
+        saveAnalysisResult(AppConfig.USE_MODEL, userQuestion, finalAnswer)
+
         return {
             "status": "success",
             "model": AppConfig.USE_MODEL,
-            "answer": "\n".join(finalOutput)
+            "answer": finalAnswer
         }
     except Exception as globalError:
         return {"status": "error", "message": str(globalError)}

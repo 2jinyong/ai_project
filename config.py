@@ -18,6 +18,13 @@ class AppConfig:
     # Chandra OCR 설정
     CHANDRA_METHOD = "hf"  # "hf" (HuggingFace) 또는 "vllm"
     
+    # 데이터베이스 설정 (MySQL)
+    DB_HOST = os.getenv("DB_HOST", "localhost")
+    DB_PORT = int(os.getenv("DB_PORT", 3306))
+    DB_USER = os.getenv("DB_USER", "root")
+    DB_PASSWORD = os.getenv("DB_PASSWORD", "1234")
+    DB_NAME = os.getenv("DB_NAME", "ai_db")
+    
     # 서버 설정
     HOST = "0.0.0.0"
     PORT = 8000
