@@ -1,3 +1,4 @@
 .env
 *.png
 *.jpg
+/simple_web/node_modules
