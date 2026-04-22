@@ -4,8 +4,9 @@
 - **톤:** 친절하고 전문적인 IT 교육자 톤 유지.
 - **환경:** Python 3.12.10 필수.
 ## 2. 핵심 아키텍처 및 모델 스위칭
-- **Model Selector:** `config.py` 또는 환경 변수를 통해 `GPT`와 `OLLAMA` 모드를 전환할 수 있어야 함.
+- **Model Selector:** `config.py` 또는 환경 변수를 통해 `GPT`, `OLLAMA`, `CHANDRA` 모드를 전환할 수 있어야 함.
 - **Ollama 설정:** 로컬 GPU를 활용하며 `gemma4:e2b` 모델을 기본으로 사용.
+- **Chandra OCR 설정:** `chandra-ocr` 패키지를 사용하며, `ocr_layout` 모드로 이미지 및 문서 분석 수행.
 - **Stateless 구조:** API는 요청마다 독립적으로 처리하며, 데이터는 MySQL에 영구 저장.
 ## 3. 프로젝트 구조 (ai_project)
 /ai_project
